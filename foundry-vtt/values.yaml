@@ -42,8 +42,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: NodePort
-  port: 30000
+  type: ClusterIP
+  port: 80
 
 ingress:
   enabled: false
@@ -64,9 +64,9 @@ ingress:
 resources:
   requests:
     cpu: 100m
-    memory: 512Gi
+    memory: 256Mi
   limits:
-    memory: 512Gi
+    memory: 256Mi
 
 livenessProbe:
   httpGet:
