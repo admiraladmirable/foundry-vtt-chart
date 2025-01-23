@@ -54,9 +54,9 @@ spec:
           - name: UV_THREADPOOL_SIZE
             value: {{ .Values.options.threadCount | quote }}
           - name: FOUNDRY_MINIFY_STATIC_FILES
-            value: true
+            value: "true"
           - name: FOUNDRY_TELEMETRY
-            value: false
+            value: "false"
           ports:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
