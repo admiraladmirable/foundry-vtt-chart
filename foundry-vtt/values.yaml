@@ -45,6 +45,8 @@ service:
   type: ClusterIP
   port: 80
   targetPort: 30000
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: nginx.external-dns-test.homelab.com
 
 ingress:
   enabled: false
