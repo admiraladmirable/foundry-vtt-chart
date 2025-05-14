@@ -22,6 +22,7 @@ options:
   ipDiscovery: false
   hostname:
   proxySSL: false
+  gid: 421
 
 secretName: "foundry-creds"
 

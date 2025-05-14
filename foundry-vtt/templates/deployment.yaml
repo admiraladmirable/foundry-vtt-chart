@@ -61,6 +61,10 @@ spec:
             value: {{ .Values.options.ipDiscovery | quote }}
           - name: CONTAINER_VERBOSE
             value: {{ .Values.options.verboseLogging | quote }}
+          {{- if .Values.options.gid }}
+          - name: FOUNDRY_GID
+            value: {{ .Values.options.gid | quote }}
+          {{- end }}
           {{- if .Values.options.hostname }}
           - name: FOUNDRY_HOSTNAME
             value: {{ .Values.options.hostname | quote }}
