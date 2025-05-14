@@ -17,7 +17,7 @@ fullnameOverride: ""
 options:
   preserveConfig: true
   preserveOwner: false # Setting false updated the data contents to the Docker uid on startup.
-  threadCount: 128
+  threadCount: 8
   verboseLogging: false
   ipDiscovery: false
   hostname:
