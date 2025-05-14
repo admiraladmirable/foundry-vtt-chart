@@ -57,6 +57,14 @@ spec:
             value: "true"
           - name: FOUNDRY_TELEMETRY
             value: "false"
+          - name: FOUNDRY_IP_DISCOVERY
+            value: {{ .Values.options.ipDiscovery | quote }}
+          - name: CONTAINER_VERBOSE
+            value: {{ .Values.options.verboseLogging | quote }}
+          {{- if .Values.options.hostname }}
+          - name: FOUNDRY_HOSTNAME
+            value: {{ .Values.options.hostname | quote }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
