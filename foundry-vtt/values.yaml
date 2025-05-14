@@ -21,6 +21,7 @@ options:
   verboseLogging: false
   ipDiscovery: false
   hostname:
+  proxySSL: false
 
 secretName: "foundry-creds"
 

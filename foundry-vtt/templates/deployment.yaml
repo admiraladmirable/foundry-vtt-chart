@@ -65,6 +65,10 @@ spec:
           - name: FOUNDRY_HOSTNAME
             value: {{ .Values.options.hostname | quote }}
           {{- end }}
+          {{- if .Values.options.proxySSL }}
+          - name: FOUNDRY_PROXY_SSL
+            value: {{ .Values.options.proxySSL | quote }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
