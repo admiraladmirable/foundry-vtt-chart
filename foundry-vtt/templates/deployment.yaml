@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "foundry-vtt.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  replicas: 1
   strategy:
     type: Recreate
   selector:
@@ -32,6 +30,26 @@ spec:
       serviceAccountName: {{ include "foundry-vtt.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: {{ .Chart.Name }}-module-fetcher
+          image: busybox:1.37
+          command: ["sh", "-c"]
+          args:
+          - >-
+            {{- if .Values.moduleFetcher.enabled }}
+            echo "Fetching modules..." &&
+            mkdir -p /data/modules &&
+            {{- range $name, $url := .Values.moduleFetcher.modules }}
+            echo "Downloading {{$name}} from {{$url}}" &&
+            curl -fsSL "{{ $url }}" -o "/data/modules/{{$name}}" &&
+            {{- end }}
+            echo "All modules downloaded."
+            {{- else }}
+            echo "Module fetcher disabled.";
+            {{- end }}
+          volumeMounts:
+            - name: data
+              mountPath: "/data"
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
