@@ -91,6 +91,10 @@ spec:
           - name: FOUNDRY_PROXY_SSL
             value: {{ .Values.options.proxySSL | quote }}
           {{- end }}
+          {{- if .Values.options.proxyPort }}
+          - name: FOUNDRY_PROXY_PORT
+            value: {{ .Values.options.proxyPort | quote }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.targetPort }}

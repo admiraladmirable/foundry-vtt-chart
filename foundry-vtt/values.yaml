@@ -22,12 +22,14 @@ options:
   ipDiscovery: false
   hostname:
   proxySSL: false
+  proxyPort: 80
   gid: 421
 
 moduleFetcher:
   enabled: false
   modules:
     depruner-chat-message-remover: "https://github.com/ChasarooniZ/auto-chat-message-pruner/releases/download/1.0.6/module.json"
+    module2: <url>
 
 
 secretName: "foundry-creds"
