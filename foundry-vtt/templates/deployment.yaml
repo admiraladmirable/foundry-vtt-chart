@@ -95,6 +95,10 @@ spec:
           - name: FOUNDRY_PROXY_PORT
             value: {{ .Values.options.proxyPort | quote }}
           {{- end }}
+          {{- if .Values.options.telemetry }}
+          - name: FOUNDRY_TELEMETRY
+            value: {{ .Values.options.telemetry | quote }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.targetPort }}

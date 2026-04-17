@@ -3,6 +3,6 @@ name: foundry-vtt
 description: A Helm chart for deploying the feldy/foundryvtt container.
 
 type: application
-version: 0.1.2
+version: 0.14.0
 # https://hub.docker.com/r/felddy/foundryvtt/tags
-appVersion: "sha-3b6327a"
+appVersion: "14.360"
