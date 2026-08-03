@@ -5,4 +5,4 @@ description: A Helm chart for deploying the feldy/foundryvtt container.
 type: application
 version: 0.14.1
 # https://hub.docker.com/r/felddy/foundryvtt/tags
-appVersion: "14.364"
+appVersion: "14.365"
